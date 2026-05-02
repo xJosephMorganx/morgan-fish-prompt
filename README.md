@@ -46,6 +46,7 @@ This makes it easier to notice when a project environment is enabled.
 ![Prompt with Python virtual environment](assets/images/preview-venv.png)
 
 ### Git status examples
+
 ![Unstaged changes prompt](assets/images/git1.png) 
 
 
@@ -63,10 +64,6 @@ The three arrows change color depending on the current repository state.
 When the previous command exits with a non-zero status, the prompt changes the arrows to red.
 
 ![Error status prompt](assets/images/error.png)
-
-| State | Preview | Description |
-|---|---|---|
-| Last command failed | ![Error status prompt](assets/images/error-status.png) | Red arrows indicate that the previous command exited with an error. |
 
 ### Right prompt
 
