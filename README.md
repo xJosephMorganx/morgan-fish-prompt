@@ -1,22 +1,14 @@
 # Morgan Fish Prompt
 
-A clean, minimal and customizable prompt for the Fish shell, designed with a multi-line layout, colored arrows, Python virtual environment detection, and Git repository status indicators.
+A clean, minimal and customizable prompt for the Fish shell, designed with a multi-line layout, colored arrows, Python virtual environment detection, Git repository status indicators, and a clean terminal-focused style.
 
-This prompt was built to keep the terminal clean while still showing the information that matters during development.
+This prompt was built to keep the terminal simple while still showing the information that matters during development.
 
 ## Preview
 
-```text
-~/dev/project (󰊢 main)
-❯❯❯
-```
+### Default prompt
 
-With a Python virtual environment enabled:
-
-```text
-~/dev/project (󰊢 main)
-󰡄 ❯❯❯
-```
+![Default prompt preview](assets/images/preview.png)
 
 ## Features
 
@@ -24,7 +16,7 @@ With a Python virtual environment enabled:
 - Current working directory display
 - Home directory shortened as `~`
 - Git branch detection
-- Git status coloring
+- Git status coloring through prompt arrows
 - Python virtual environment indicator
 - Error status indicator
 - Minimal right prompt disabled by default
@@ -35,39 +27,46 @@ With a Python virtual environment enabled:
 
 ### Directory and Git branch
 
-The first line shows the current path. If the current directory is inside a Git repository, the active branch is shown next to the path.
+The first line shows the current path.
 
-```text
-~/dev/my-project (󰊢 main)
-```
+If the current directory is inside a Git repository, the active branch is displayed next to the path.
 
-When no Git repository is detected, only the path is displayed.
+![Default prompt preview](assets/images/preview-default.png)
 
-```text
-~/Downloads
-```
+When no Git repository is detected, only the path is shown.
+
+![Default prompt preview](assets/images/preview2.png)
 
 ### Python virtual environment
 
 When a Python virtual environment is active, the prompt changes the path color and displays a virtual environment icon before the arrows.
 
-```text
-󰡄 ❯❯❯
-```
+This makes it easier to notice when a project environment is enabled.
 
-This makes it easy to notice when a virtual environment is enabled.
+![Prompt with Python virtual environment](assets/images/preview-venv.png)
 
-### Git status colors
+### Git status examples
+![Unstaged changes prompt](assets/images/git1.png) 
 
-The three arrows change color depending on the repository state:
 
-| State | Behavior |
-|---|---|
-| Clean repository | Neutral gray/white arrows |
-| Unstaged changes | Yellow arrow styling |
-| Staged changes | Yellow arrow styling |
-| Local commits ahead of upstream | Yellow final arrow |
-| Last command failed | Red error arrows |
+The three arrows change color depending on the current repository state.
+
+| State | Preview | Description |
+|---|---|---|
+| Clean repository | ![Clean repository prompt](assets/images/git-clean.png) | Neutral arrows indicate a clean working tree. |
+| Unstaged changes | ![Unstaged changes prompt](assets/images/git-unstaged.png) | Yellow arrows indicate modified or untracked files that have not been staged. |
+| Staged changes | ![Staged changes prompt](assets/images/git-staged.png) | Yellow arrows indicate changes that have been staged and are ready to commit. |
+| Ahead of upstream | ![Ahead of upstream prompt](assets/images/git-ahead.png) | The prompt highlights when there are local commits that have not been pushed. |
+
+### Command error status
+
+When the previous command exits with a non-zero status, the prompt changes the arrows to red.
+
+![Error status prompt](assets/images/error.png)
+
+| State | Preview | Description |
+|---|---|---|
+| Last command failed | ![Error status prompt](assets/images/error-status.png) | Red arrows indicate that the previous command exited with an error. |
 
 ### Right prompt
 
@@ -91,7 +90,7 @@ Recommended fonts:
 - Hack Nerd Font
 - MesloLGS Nerd Font
 
-Without a Nerd Font, some icons may not display correctly.
+Without a Nerd Font, some icons may not display correctly in the terminal.
 
 ## Installation
 
@@ -122,6 +121,15 @@ Or simply close and reopen your terminal.
 
 ```text
 morgan-fish-prompt/
+├── assets/
+│   └── images/
+│       ├── preview-default.png
+│       ├── preview-venv.png
+│       ├── git-clean.png
+│       ├── git-unstaged.png
+│       ├── git-staged.png
+│       ├── git-ahead.png
+│       └── error-status.png
 ├── functions/
 │   ├── fish_prompt.fish
 │   └── fish_right_prompt.fish
